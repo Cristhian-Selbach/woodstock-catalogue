@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Rockane";
+  src: url("../fonts/Rockane.otf");
+}
+* {
+  font-family: "Rockane";
+  font-smooth: always;
+}
+.outline-brown {
+  text-shadow: -0.15em 0.1em #3c2f0e;
+}
