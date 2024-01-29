@@ -1,5 +1,7 @@
 <template>
-  <div class="w-100 flex items-center bg-[#88888878] h-16 rounded-b-[26px]">
+  <div
+    class="w-100 flex items-center bg-[#88888878] h-16 rounded-b-[26px] backdrop-blur-sm"
+  >
     <div class="w-dvw mx-20 flex items-center justify-between">
       <img
         src="../assets/images/logo.png"
