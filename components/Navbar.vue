@@ -9,11 +9,11 @@
         class="w-44 object-contain cursor-pointer"
       />
 
-      <div class="text-[28px] space-x-24 text-white outline-brown">
-        <Nuxt-Link to="/artists">Artists</Nuxt-Link>
-        <Nuxt-Link to="/brands">Brands</Nuxt-Link>
-        <Nuxt-Link to="/models">Models</Nuxt-Link>
-        <Nuxt-Link to="/about">About</Nuxt-Link>
+      <div class="text-[28px] space-x-24 text-white outline-brown inline-block">
+        <Nuxt-Link class="hover-effect" to="/artists">Artists</Nuxt-Link>
+        <Nuxt-Link class="hover-effect" to="/brands">Brands</Nuxt-Link>
+        <Nuxt-Link class="hover-effect" to="/models">Models</Nuxt-Link>
+        <Nuxt-Link class="hover-effect" to="/about">About</Nuxt-Link>
       </div>
     </div>
   </div>

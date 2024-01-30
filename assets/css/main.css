@@ -16,3 +16,11 @@
 .outline-title {
   text-shadow: -0.08em 0.05em #3c2f0e;
 }
+.hover-effect {
+  transition: all 0.3s ease-in-out;
+}
+.hover-effect:hover {
+  display: inline-block;
+  transform: scale(1.15);
+  transition: all 0.3s ease-in-out;
+}
