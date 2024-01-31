@@ -21,7 +21,7 @@
         </div>
 
         <button
-          class="flex items-center justify-center w-[160px] h-11 bg-[#0F63AF] border-2 border-[#0F63AF] rounded-full text-white text-3xl hover:text-[#0F63AF] transition-all duration-300 hover:bg-transparent"
+          class="flex items-center justify-center w-[160px] h-11 bg-[#0F63AF] border-2 border-[#0F63AF] rounded-full text-white text-3xl hover-effect"
         >
           search
         </button>
