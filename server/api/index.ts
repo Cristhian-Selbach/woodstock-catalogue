@@ -1,6 +1,10 @@
-import db from "../database/connection";
+import mongoose from "mongoose";
 
 export default defineEventHandler(async () => {
-  let guitars = db.collection("guitars");
-  return guitars.find({}).toArray();
+  const uri = process.env.STRING_CONNECTION || "mongodb://localhost:27017";
+  await mongoose.connect(uri);
+
+  const Artists = mongoose.connection.collection("Artists");
+
+  return Artists.find({}).toArray();
 });

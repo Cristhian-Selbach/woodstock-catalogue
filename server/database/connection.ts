@@ -1,4 +1,3 @@
-import { MongoClient } from "mongodb";
-const client = new MongoClient(process.env.STRING_CONNECTION || "");
-client.connect();
-export default client.db("WoodStock");
+import mongoose from "mongoose";
+const uri = process.env.STRING_CONNECTION || "mongodb://localhost:27017";
+export default mongoose.connect(uri);
