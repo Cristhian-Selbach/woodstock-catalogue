@@ -8,6 +8,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro: {
+    esbuild: {
+      options: {
+        target: "esnext",
+      },
+    },
+  },
   app: {
     head: {
       link: [
