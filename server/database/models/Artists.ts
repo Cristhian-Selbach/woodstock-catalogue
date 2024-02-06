@@ -1,8 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 
-interface Artist {
+export interface IArtist {
   slug: string;
   name: string;
+  displayName: string;
   description: string;
   guitars: mongoose.Types.ObjectId[];
   images: {
@@ -11,9 +12,10 @@ interface Artist {
   };
 }
 
-const ArtistSchema: Schema = new Schema<Artist>({
+const artistSchema: Schema = new Schema<IArtist>({
   slug: { type: String, required: true },
   name: { type: String, required: true },
+  displayName: { type: String, required: true },
   guitars: [{ type: Schema.Types.ObjectId, ref: "guitars" }],
   description: { type: String, required: true },
   images: {
@@ -22,6 +24,6 @@ const ArtistSchema: Schema = new Schema<Artist>({
   },
 });
 
-const Artists = mongoose.model<Artist>("artists", ArtistSchema);
+const Artist = mongoose.model<IArtist>("artists", artistSchema);
 
-export default Artists;
+export default Artist;

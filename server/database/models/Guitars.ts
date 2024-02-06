@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 type statsValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-interface Guitar {
+export interface IGuitar {
   slug: string;
   brand: string;
   name: string;
@@ -21,7 +21,7 @@ interface Guitar {
   };
 }
 
-const GuitarSchema: Schema = new Schema<Guitar>({
+const guitarSchema: Schema = new Schema<IGuitar>({
   slug: { type: String, required: true },
   brand: { type: String, required: true },
   name: { type: String, required: true },
@@ -40,6 +40,6 @@ const GuitarSchema: Schema = new Schema<Guitar>({
   },
 });
 
-const Guitars = mongoose.model<Guitar>("Guitar", GuitarSchema);
+const Guitar = mongoose.model<IGuitar>("guitars", guitarSchema);
 
-export default Guitars;
+export default Guitar;

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Guitar from "../database/models/Guitars";
+import Guitar, { type IGuitar } from "../../database/models/Guitars";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
     const body = await readBody(event);
 
-    await new Guitar({
+    await new Guitar<IGuitar>({
       slug: body.slug,
       brand: body.brand,
       name: body.name,
