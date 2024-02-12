@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Artists from "../database/models/Artists";
+import Artists from "../../database/models/Artists";
 
 export default defineEventHandler(async (event) => {
   try {
