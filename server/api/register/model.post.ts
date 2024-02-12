@@ -11,6 +11,7 @@ export default defineEventHandler(async (event) => {
 
     await new Model<IModel>({
       name: body.name,
+      slug: body.slug,
       imgUrl: body.imgUrl,
     }).save();
 

@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     const slugCapitalized = capitalizeWords(slugReplaced);
 
     const result = await Guitars.find({
-      brand: { $regex: slugCapitalized, $options: "i" },
+      model: { $regex: slugCapitalized, $options: "i" },
     });
 
     if (!result || result.length === 0) {
