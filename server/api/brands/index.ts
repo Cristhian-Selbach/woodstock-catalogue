@@ -9,6 +9,7 @@ export default defineEventHandler(async (event) => {
 
     return Brands.find({});
   } catch (error) {
+    setResponseStatus(event, 400);
     console.log("Error " + error);
     return "err";
   }

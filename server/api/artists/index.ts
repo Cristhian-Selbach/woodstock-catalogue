@@ -6,9 +6,9 @@ export default defineEventHandler(async (event) => {
     mongoose.connect(
       process.env.STRING_CONNECTION || "mongodb://localhost:27017"
     );
-
     return Artists.find({});
   } catch (error) {
+    setResponseStatus(event, 400);
     console.log("Error " + error);
     return "err";
   }
