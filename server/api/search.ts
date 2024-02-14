@@ -1,28 +1,31 @@
 import Guitars from "../database/models/Guitars";
 import Artists from "../database/models/Artists";
 import mongoose from "mongoose";
+import Fuse from "fuse.js";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<any> => {
   try {
     mongoose.connect(
       process.env.STRING_CONNECTION || "mongodb://localhost:27017"
     );
 
-    const query = getQuery(event).query;
+    const query = getQuery(event).query as string;
 
-    const foundGuitars = await Guitars.find({
-      $or: [
-        { brand: { $regex: query, $options: "i" } },
-        { model: { $regex: query, $options: "i" } },
-        { name: { $regex: query, $options: "i" } },
-      ],
-    });
+    const guitars = await Guitars.find();
+    const artists = await Artists.find();
 
-    const foundArtists = await Artists.find({
-      name: { $regex: query, $options: "i" },
-    });
+    const joinTables = [...guitars, ...artists];
 
-    const result = [...foundGuitars, ...foundArtists];
+    const options = {
+      keys: ["brand", "model", "name", "slug", "displayName"],
+      threshould: 0.8,
+      includeScore: true,
+      location: 0,
+      distance: 100,
+    };
+
+    const fuse = new Fuse(joinTables, options);
+    const result = fuse.search(query);
 
     if (!result || result.length === 0) {
       setResponseStatus(event, 400);
