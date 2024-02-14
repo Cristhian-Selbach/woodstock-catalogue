@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
 
     return result;
   } catch (error) {
-    setResponseStatus(event, 400);
+    setResponseStatus(event, 404);
     console.log("Error " + error);
     return "err";
   }
