@@ -18,8 +18,9 @@ export default defineEventHandler(async (event): Promise<any> => {
 
     const options = {
       keys: ["brand", "model", "name", "slug", "displayName"],
-      threshould: 0.8,
+      threshould: 1,
       includeScore: true,
+      minScore: 100,
       location: 0,
       distance: 100,
     };
