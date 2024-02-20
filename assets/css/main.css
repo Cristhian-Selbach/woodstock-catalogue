@@ -16,6 +16,9 @@
 .outline-title {
   text-shadow: -0.08em 0.05em #3c2f0e;
 }
+.outline-title-gray {
+  text-shadow: -0.06em 0.05em #2e2e2e;
+}
 .hover-effect {
   display: inline-block;
   transition: all 0.15s ease;

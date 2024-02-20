@@ -9,7 +9,9 @@
       <div
         class="flex flex-col items-center justify-between py-11 sm:w-[530px] sm:h-[310px] w-[90vw] h-[40vh] bg-[#b9b9b978] backdrop-blur-sm rounded-[28px]"
       >
-        <h1 class="text-white sm:text-6xl text-[55px] outline-title h-fit">
+        <h1
+          class="text-white sm:text-6xl text-[55px] outline-title h-fit text-nowrap"
+        >
           Guitar Catalogue
         </h1>
 
