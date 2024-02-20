@@ -19,6 +19,10 @@
 .outline-title-gray {
   text-shadow: -0.06em 0.05em #2e2e2e;
 }
+.outline-cards {
+  box-shadow: -8px 8px 1px -3px rgba(51, 51, 51, 0.7);
+}
+
 .hover-effect {
   display: inline-block;
   transition: all 0.15s ease;
@@ -27,4 +31,11 @@
   display: inline-block;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
+}
+.hover-effect-cards {
+  transition: all 0.15s ease;
+}
+.hover-effect-cards:hover {
+  transform: scale(1.06);
+  transition: all 0.25s ease-in-out;
 }
