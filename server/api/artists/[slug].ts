@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Artists, { type IArtist } from "../../database/models/Artists";
+import { type IGuitar } from "../../database/models/Guitars";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -10,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
     const result: IArtist[] = await Artists.find({
       slug: slugParam,
-    });
+    }).populate<IGuitar>("guitars");
 
     if (!result || result.length === 0) {
       setResponseStatus(event, 400);

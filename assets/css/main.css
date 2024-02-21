@@ -39,9 +39,3 @@
   transform: scale(1.06);
   transition: all 0.25s ease-in-out;
 }
-.safari-fixed-bg {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}

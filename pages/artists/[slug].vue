@@ -4,6 +4,7 @@ const slug = route.params.slug;
 
 const { data } = await useFetch(`/api/artists/${slug}`);
 const artist = data.value![0];
+const guitars = artist.guitars;
 </script>
 <template>
   <div
@@ -18,11 +19,22 @@ const artist = data.value![0];
       class="w-1/3 h-3/4 object-cover rounded-[32px] mr-[6vw]"
     />
     <div
-      class="w-full h-3/4 bg-[#e4e4e456] rounded-[32px] backdrop-blur-sm text-white p-4 outline-brown"
+      class="flex flex-col overflow-clip w-full h-3/4 bg-[#e4e4e456] rounded-[32px] backdrop-blur-sm text-white p-8 pt-3 outline-brown"
     >
-      <div class="h-1/2">
-        <h1>{{ artist.name }}</h1>
-        <p>{{ artist.description }}</p>
+      <div>
+        <h1 class="text-center text-[40px] outline-title">{{ artist.name }}</h1>
+        <p class="text-2xl">{{ artist.description }}</p>
+      </div>
+
+      <div class="flex flex-col h-full">
+        <h1 class="text-center text-[40px] outline-title">Main Guitars</h1>
+
+        <div
+          v-for="guitar in guitars"
+          class="w-1/3 h-full bg-[#e4e4e456] rounded-[32px] flex justify-center"
+        >
+          <img :src="guitar.images.coverImgUrl" class="" />
+        </div>
       </div>
     </div>
   </div>
