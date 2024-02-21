@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Artists from "../../database/models/Artists";
+import Artists, { type IArtist } from "../../database/models/Artists";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     );
     const slugParam = event.context.params?.slug as string;
 
-    const result = await Artists.find({
+    const result: IArtist[] = await Artists.find({
       slug: slugParam,
     });
 
@@ -23,6 +23,6 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     setResponseStatus(event, 404);
     console.log("Error " + error);
-    return "err";
+    throw "err";
   }
 });

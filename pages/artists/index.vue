@@ -18,7 +18,7 @@ const artists = data.value;
       class="mx-[10vw] sm:mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-16 sm:gap-[10vw] mt-12 md:mt-32 relative"
     >
       <Nuxt-Link
-        :to="`/${artist.slug}`"
+        :to="`artists/${artist.slug}`"
         v-for="artist in artists"
         class="h-[450px] bg-cover bg-center text-white flex justify-center items-center rounded-[45px] outline-cards hover-effect-cards"
         :style="`background-image: url(${artist.images.displayImgUrl})`"
