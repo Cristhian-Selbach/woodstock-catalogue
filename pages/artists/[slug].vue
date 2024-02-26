@@ -6,6 +6,7 @@ const { data } = await useFetch(`/api/artists/${slug}`);
 const artist = data.value![0];
 const guitars = artist.guitars;
 </script>
+
 <template>
   <div
     class="bg-[url(~/assets/images/artists-cover-background.png)] w-[100vw] h-[100vh] fixed bg-cover bg-center"
@@ -16,7 +17,7 @@ const guitars = artist.guitars;
   >
     <img
       :src="artist.images.coverImgUrl"
-      class="w-1/3 h-3/4 object-cover rounded-[32px] mr-[6vw]"
+      class="w-1/3 h-3/4 object-cover rounded-[32px] mr-[6vw] hover-effect-cards"
     />
     <div
       class="flex flex-col overflow-clip w-full h-3/4 bg-[#e4e4e456] rounded-[32px] backdrop-blur-sm text-white p-8 pt-3 outline-brown"
@@ -28,12 +29,13 @@ const guitars = artist.guitars;
 
       <div class="flex flex-col h-full">
         <h1 class="text-center text-[40px] outline-title">Main Guitars</h1>
-
-        <div
-          v-for="guitar in guitars"
-          class="w-1/3 h-full bg-[#e4e4e456] rounded-[32px] flex justify-center"
-        >
-          <img :src="guitar.images.coverImgUrl" class="" />
+        <div class="flex h-full space-x-[2.5vw]">
+          <Nuxt-Link
+            v-for="guitar in guitars"
+            :to="`/guitars/${guitar.slug}`"
+            class="w-1/3 h-full bg-[#e4e4e456] rounded-[32px] flex justify-center bg-contain bg-no-repeat bg-center hover-effect-cards"
+            :style="`background-image: url(${guitar.images.coverImgUrl})`"
+          ></Nuxt-Link>
         </div>
       </div>
     </div>

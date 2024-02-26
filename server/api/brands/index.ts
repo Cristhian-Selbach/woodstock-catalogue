@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Brands from "../../database/models/Brands";
+import Brands, { type IBrand } from "../../database/models/Brands";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -7,10 +7,10 @@ export default defineEventHandler(async (event) => {
       process.env.STRING_CONNECTION || "mongodb://localhost:27017"
     );
 
-    return Brands.find({});
+    return Brands.find<IBrand>({});
   } catch (error) {
     setResponseStatus(event, 404);
     console.log("Error " + error);
-    return "err";
+    throw "err";
   }
 });
