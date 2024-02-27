@@ -39,3 +39,6 @@
   transform: scale(1.06);
   transition: all 0.25s ease-in-out;
 }
+.shadow-cards {
+  filter: drop-shadow(5px 3px 4px #414141);
+}

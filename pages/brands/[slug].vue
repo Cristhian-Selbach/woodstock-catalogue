@@ -11,14 +11,25 @@ const guitars = data.value!;
   ></div>
   <Navbar></Navbar>
   <div
-    class="mx-[10vw] sm:mx-20 mt-[8vw] sm:mt-20 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[8vw] xl:grid-cols-4"
+    class="mx-[10vw] sm:mx-20 mt-[13vw] sm:mt-40 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15vw] xl:grid-cols-4"
   >
     <NuxtLink
       v-for="guitar in guitars"
       :to="`/brands/${guitar.slug}`"
-      :style="`background-image: url(${guitar.images.displayImgUrl})`"
-      class="h-[200px] flex justify-center bg-contain bg-no-repeat bg-center hover-effect-cards rounded-[30px]"
+      class="flex justify-center flex-col hover-effect-cards z-10 items-center"
     >
+      <div class="bg-[#e4e4e4c4] rounded-[25px] w-full z-0 relative h-[300px]">
+        <img
+          :src="guitar.images.displayImgUrl"
+          alt=""
+          class="shadow-cards h-[130%] w-full bottom-[32%] relative object-contain"
+        />
+      </div>
+      <div class="py-3 bg-[#232323] rounded-b-[25px] w-[80%]">
+        <p class="text-white text-center text-2xl text-wrap">
+          {{ guitar.name }}
+        </p>
+      </div>
     </NuxtLink>
   </div>
 </template>
