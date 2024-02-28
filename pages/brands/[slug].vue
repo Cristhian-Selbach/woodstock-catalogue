@@ -15,7 +15,7 @@ const guitars = data.value!;
   >
     <NuxtLink
       v-for="guitar in guitars"
-      :to="`/brands/${guitar.slug}`"
+      :to="`/guitars/${guitar.slug}`"
       class="flex justify-center flex-col hover-effect-cards z-10 items-center"
     >
       <div class="bg-[#e4e4e4c4] rounded-[25px] w-full z-0 relative h-[300px]">

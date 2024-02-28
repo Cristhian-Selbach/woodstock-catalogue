@@ -26,7 +26,7 @@ const guitarSchema: Schema = new Schema<IGuitar>({
   brand: { type: String, required: true },
   name: { type: String, required: true },
   model: { type: String, required: true },
-  artists: [{ type: Schema.Types.ObjectId, ref: "Artists" }],
+  artists: [{ type: Schema.Types.ObjectId, ref: "artists" }],
   description: { type: String, required: true },
   images: {
     coverImgUrl: { type: String, required: true },
