@@ -37,7 +37,7 @@ function changeStats() {
       />
       <div class="w-1/2"></div>
       <div class="flex items-center h-[calc(100%-64px)] w-[40%] mt-16">
-        <div class="bg-[#a7a7a780] rounded-[30px] w-full h-[80%]">
+        <div class="bg-[#a7a7a780] rounded-[30px] w-full h-[85%]">
           <div
             class="text-white p-10 text-[40px] outline-title-gray flex flex-col justify-between h-full"
           >
@@ -71,7 +71,6 @@ function changeStats() {
                 v-for="artist in guitar.artists"
               >
                 {{ artist.name }}, &nbsp;
-                <pre></pre>
               </NuxtLink>
             </div>
 
