@@ -1,5 +1,15 @@
+<script lang="ts" setup>
+const router = useRouter();
+
+const query = ref("");
+async function search() {
+  router.push(`/search?query=${query.value}`);
+}
+</script>
+
 <template>
   <div
+    @keyup.enter="search()"
     class="bg-[url(~/assets/images/hero-image.png)] w-100 h-screen bg-cover bg-left"
   >
     <Navbar></Navbar>
@@ -22,6 +32,7 @@
             class="bg-transparent w-full outline-none flex h-10 self-end placeholder-gray-500"
             type="text"
             placeholder="brand, model, shape, artist..."
+            v-model="query"
           />
           <i
             class="sm:text-[28px] text-[20px] fa-solid fa-magnifying-glass text-gray-500"
@@ -29,6 +40,7 @@
         </div>
 
         <button
+          @click="search()"
           class="flex items-center justify-center sm:mt-0 mt-5 w-[160px] h-11 bg-[#0F63AF] border-2 border-[#0F63AF] rounded-full text-white text-3xl hover-effect"
         >
           search

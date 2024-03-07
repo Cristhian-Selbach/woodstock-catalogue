@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 const route = useRoute();
 const query = route.query.query;
+
 const { data } = useFetch(`/api/search?query=${query}`);
-const results = data.value!;
+let results = data!;
 </script>
 <template>
   <div
     class="bg-[url(~/assets/images/guitars-background.png)] w-[100vw] h-[100vh] fixed bg-cover bg-center"
   ></div>
   <Navbar></Navbar>
+
   <h1
     v-if="results"
     class="text-5xl text-white outline-title relative text-center mt-[4vw]"
