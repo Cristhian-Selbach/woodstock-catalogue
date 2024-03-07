@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Guitars from "../../database/models/Guitars";
+import Guitars, { type IGuitar } from "../../database/models/Guitars";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     const slugReplaced = slugParam.replace("-", " ");
     const slugCapitalized = capitalizeWords(slugReplaced);
 
-    const result = await Guitars.find({
+    const result = await Guitars.find<IGuitar>({
       model: { $regex: slugCapitalized, $options: "i" },
     });
 
@@ -38,6 +38,6 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     setResponseStatus(event, 404);
     console.log("Error " + error);
-    return "err";
+    throw "err";
   }
 });

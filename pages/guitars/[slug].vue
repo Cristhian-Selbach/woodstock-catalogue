@@ -79,7 +79,8 @@ function changeStats() {
                 @click="changeStats"
                 class="flex items-center justify-center w-[160px] h-11 bg-[#0F63AF] border-2 border-[#0F63AF] rounded-full text-white text-3xl hover-effect"
               >
-                see more
+                <p v-if="stats">see more</p>
+                <p v-else>see stats</p>
               </button>
             </div>
           </div>
