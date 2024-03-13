@@ -12,7 +12,7 @@ function toggle() {
 
 <template>
   <div
-    class="w-100 flex items-center bg-[#88888878] h-16 rounded-b-[26px] backdrop-blur-sm"
+    class="z-10 relative w-100 flex items-center bg-[#88888878] h-16 rounded-b-[26px] backdrop-blur-sm"
   >
     <div class="w-dvw sm:mx-20 mx-[10vw] flex items-center justify-between">
       <Nuxt-Link to="/">
