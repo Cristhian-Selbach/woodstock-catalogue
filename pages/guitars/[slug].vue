@@ -29,14 +29,15 @@ function changeStats() {
     class="bg-[url(~/assets/images/guitars-cover-background.png)] h-screen bg-cover bg-center"
   >
     <Navbar></Navbar>
-    <div class="mx-20 flex justify-between h-[calc(100%-64px)]">
+    <div class="mx-20 xl:mx-52 flex justify-between h-[calc(100%-64px)]">
       <img
-        class="bottom-16 relative z-0 h-screen object-contain outline-guitars"
+        class="bottom-16 absolute z-0 h-[96vh] object-contain outline-guitars"
         :src="guitar.images.coverImgUrl"
         alt=""
       />
+      <div></div>
 
-      <div class="h-full flex items-center">
+      <div class="h-full relative z-[10] flex items-center">
         <div
           class="w-[40vw] flex flex-col items-center space-y-5 h-fit bg-[#a7a7a780] rounded-[30px] text-white p-12 text-[40px] outline-title-gray"
         >
@@ -61,11 +62,11 @@ function changeStats() {
               </div>
             </div>
           </div>
-          <div v-else class="w-full">
-            <p class="text-2xl">{{ guitar.description }}</p>
-            <span class="text-2xl">Artists: </span>
+          <div v-else class="w-full text-[2.1vw]">
+            <p>{{ guitar.description }}</p>
+            <span>Artists: </span>
             <NuxtLink
-              class="text-2xl hover-effect"
+              class="hover-effect"
               :to="`/artists/${artist.slug}`"
               v-for="artist in guitar.artists"
             >

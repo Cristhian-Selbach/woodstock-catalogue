@@ -13,7 +13,7 @@ const guitars = artist.guitars;
   ></div>
   <Navbar></Navbar>
   <div
-    class="mx-20 flex justify-between items-center h-[calc(100dvh-64px)] relative"
+    class="mx-20 xl:mx-52 flex justify-between items-center h-[calc(100dvh-64px)] relative"
   >
     <img
       :src="artist.images.coverImgUrl"

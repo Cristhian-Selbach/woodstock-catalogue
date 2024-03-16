@@ -14,7 +14,9 @@ function toggle() {
   <div
     class="z-10 relative w-100 flex items-center bg-[#88888878] h-16 rounded-b-[26px] backdrop-blur-sm"
   >
-    <div class="w-dvw sm:mx-20 mx-[10vw] flex items-center justify-between">
+    <div
+      class="w-dvw sm:mx-20 xl:mx-52 mx-[10vw] flex items-center justify-between"
+    >
       <Nuxt-Link to="/">
         <img
           src="../assets/images/logo.png"

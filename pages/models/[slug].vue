@@ -9,7 +9,7 @@ const guitars = data!;
   ></div>
   <Navbar></Navbar>
   <div
-    class="mx-[10vw] sm:mx-20 mt-[40vw] sm:mt-40 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40vw] sm:gap-[15vw] xl:grid-cols-4"
+    class="mx-[10vw] xl:mx-52 sm:mx-20 mt-[40vw] sm:mt-40 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40vw] sm:gap-[15vw] xl:gap-[8vw] xl:grid-cols-4"
   >
     <NuxtLink
       v-for="guitar in guitars"
