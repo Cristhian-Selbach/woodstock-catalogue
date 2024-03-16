@@ -1,11 +1,7 @@
-import mongoose from "mongoose";
 import Guitars, { type IGuitar } from "../../database/models/Guitars";
 
 export default defineEventHandler(async (event) => {
   try {
-    mongoose.connect(
-      process.env.STRING_CONNECTION || "mongodb://localhost:27017"
-    );
     const slugParam = event.context.params?.slug as string;
 
     function capitalizeWords(text: string): string {

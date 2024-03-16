@@ -1,12 +1,7 @@
-import mongoose from "mongoose";
 import Artist, { type IArtist } from "../../database/models/Artists";
 
 export default defineEventHandler(async (event) => {
   try {
-    mongoose.connect(
-      process.env.STRING_CONNECTION || "mongodb://localhost:27017"
-    );
-
     const body = await readBody(event);
 
     await new Artist<IArtist>({

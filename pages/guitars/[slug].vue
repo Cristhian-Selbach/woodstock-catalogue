@@ -39,7 +39,7 @@ function changeStats() {
 
       <div class="h-full relative z-[10] flex items-center">
         <div
-          class="w-[40vw] flex flex-col items-center space-y-5 h-fit bg-[#a7a7a780] rounded-[30px] text-white p-12 text-[40px] outline-title-gray"
+          class="flex flex-col items-center space-y-5 h-fit bg-[#a7a7a780] rounded-[30px] text-white p-12 text-[40px] outline-title-gray"
         >
           <h1 class="text-center text-[3vw]">
             {{ guitar.brand + " " + guitar.name }}
@@ -67,8 +67,8 @@ function changeStats() {
             <span>Artists: </span>
             <NuxtLink
               class="hover-effect"
-              :to="`/artists/${artist.slug}`"
               v-for="artist in guitar.artists"
+              :to="`/artists/${artist.slug}`"
             >
               {{ artist.name }}, &nbsp;
             </NuxtLink>

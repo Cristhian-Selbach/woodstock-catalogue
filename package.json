@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "fuse.js": "^7.0.0",
-    "mongoose": "^8.1.1"
+    "mongoose": "^8.1.1",
+    "nuxt-server-utils": "^0.0.7"
   }
 }

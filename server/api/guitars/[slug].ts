@@ -1,26 +1,27 @@
-import mongoose from "mongoose";
 import { type IArtist } from "../../database/models/Artists";
-import Guitars, { type IGuitar } from "~/server/database/models/Guitars";
+import Guitars from "~/server/database/models/Guitars";
 
 export default defineEventHandler(async (event) => {
   try {
-    mongoose.connect(
-      process.env.STRING_CONNECTION || "mongodb://localhost:27017"
-    );
     const slugParam = event.context.params?.slug as string;
 
-    const result: IGuitar[] = await Guitars.find({
+    const result = await Guitars.findOne({
       slug: slugParam,
-    }).populate<IArtist>("artists");
+    }).populate<{ artists: IArtist[] }>("artists");
 
-    if (!result || result.length === 0) {
+    if (!result) {
       setResponseStatus(event, 400);
       throw createError({
         statusMessage: `${slugParam} could not be find`,
       });
     }
 
-    return result[0];
+    const guitartWithArtists = result.toJSON();
+
+    return {
+      ...guitartWithArtists,
+      artists: guitartWithArtists.artists as unknown as IArtist[],
+    };
   } catch (error) {
     setResponseStatus(event, 404);
     console.log("Error " + error);

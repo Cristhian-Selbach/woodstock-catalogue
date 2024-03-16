@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  modules: ["nuxt-server-utils"],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
         target: "esnext",
       },
     },
+    plugins: ["~/server/plugins/mongodb.ts"],
   },
   app: {
     head: {

@@ -1,14 +1,10 @@
 import Guitars from "../database/models/Guitars";
 import Artists from "../database/models/Artists";
-import mongoose from "mongoose";
+
 import Fuse from "fuse.js";
 
 export default defineEventHandler(async (event): Promise<any> => {
   try {
-    mongoose.connect(
-      process.env.STRING_CONNECTION || "mongodb://localhost:27017"
-    );
-
     const query = getQuery(event).query as string;
 
     const guitars = await Guitars.find();
