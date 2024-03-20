@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["nuxt-server-utils"],
+  modules: ["nuxt-server-utils", "nuxt-viewport"],
+  viewport: {
+    breakpoints: {
+      mobile: 600,
+      desktop: 1000,
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

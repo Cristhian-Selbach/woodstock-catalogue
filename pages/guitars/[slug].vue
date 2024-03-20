@@ -2,6 +2,8 @@
 const route = useRoute();
 const slug = route.params.slug;
 
+const viewport = useViewport();
+
 const { data } = await useFetch(`/api/guitars/${slug}`);
 const guitar = data.value!;
 
@@ -17,6 +19,10 @@ function transformString(str: string): string {
   return chars.join("");
 }
 
+watch(viewport.breakpoint, (newBreakpoint, oldBreakpoint) => {
+  console.log("Breakpoint updated:", oldBreakpoint, "->", newBreakpoint);
+});
+
 let stats = ref(true);
 
 function changeStats() {
@@ -29,9 +35,13 @@ function changeStats() {
     class="bg-[url(~/assets/images/guitars-cover-background.png)] h-screen bg-cover bg-center"
   >
     <Navbar></Navbar>
-    <div class="mx-20 xl:mx-52 flex justify-between h-[calc(100%-64px)]">
+    <!-- DESKTOP SCREEN -->
+    <div
+      v-if="!viewport.isLessThan('desktop')"
+      class="mx-32 xl:mx-80 flex justify-between h-[calc(100%-64px)]"
+    >
       <img
-        class="bottom-16 absolute z-0 h-[96vh] object-contain outline-guitars"
+        class="bottom-16 absolute z-0 h-[97vh] xl:h-[105vh] object-contain outline-guitars"
         :src="guitar.images.coverImgUrl"
         alt=""
       />
@@ -39,15 +49,15 @@ function changeStats() {
 
       <div class="h-full relative z-[10] flex items-center">
         <div
-          class="flex flex-col items-center space-y-5 h-fit bg-[#a7a7a780] rounded-[30px] text-white p-12 text-[40px] outline-title-gray"
+          class="w-[480px] flex flex-col items-center space-y-5 h-fit bg-[#a7a7a780] rounded-[30px] text-white p-12 text-[40px] outline-title-gray"
         >
-          <h1 class="text-center text-[3vw]">
+          <h1 class="text-center text-5xl leading-10">
             {{ guitar.brand + " " + guitar.name }}
           </h1>
 
           <div v-if="stats" class="w-full">
             <div v-for="(item, index) in guitar.stats">
-              <div class="text-[2.8vw] flex justify-between">
+              <div class="text-[42px] flex justify-between">
                 <h2>{{ transformString(index) }}</h2>
                 <h2>{{ item }}</h2>
               </div>
@@ -62,7 +72,7 @@ function changeStats() {
               </div>
             </div>
           </div>
-          <div v-else class="w-full text-[2.1vw]">
+          <div v-else class="w-full text-2xl">
             <p>{{ guitar.description }}</p>
             <span>Artists: </span>
             <NuxtLink
@@ -86,6 +96,8 @@ function changeStats() {
         </div>
       </div>
     </div>
+    <!-- MOBILE SCREEN -->
+    <div v-else>MOBILE</div>
   </div>
 </template>
 

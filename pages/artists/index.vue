@@ -6,11 +6,11 @@ const artists = data.value;
 <template>
   <!-- BACKGROUND MOBILE (because background-fixed is not supported on safari ) -->
   <div
-    class="bg-[url(~/assets/images/artists-background.png)] w-[100vw] h-[100vh] fixed bg-cover bg-center sm:hidden"
+    class="bg-[url(~/assets/images/artists-background.png)] w-[100vw] h-[100vh] fixed bg-cover bg-center"
   ></div>
 
   <div
-    class="bg-[url(~/assets/images/artists-background.png)] h-[100vh] bg-cover bg-center justify-between bg-fixed"
+    class="bg-[url(~/assets/images/artists-background.png)] bg-cover bg-center bg-fixed"
   >
     <Navbar></Navbar>
 

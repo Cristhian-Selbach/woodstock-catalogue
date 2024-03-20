@@ -7,7 +7,7 @@ const models = data.value!;
     class="bg-[url(~/assets/images/artists-background.png)] w-[100vw] h-[100vh] fixed bg-cover bg-center"
   ></div>
   <div
-    class="bg-[url(~/assets/images/artists-background.png)] bg-cover bg-center justify-between bg-fixed"
+    class="bg-[url(~/assets/images/artists-background.png)] bg-cover bg-center bg-fixed"
   >
     <Navbar></Navbar>
 
