@@ -14,11 +14,11 @@ export default defineEventHandler(async (event): Promise<any> => {
 
     const options = {
       keys: ["brand", "model", "name", "slug", "displayName"],
-      threshould: 1,
+      threshould: 0.1,
       includeScore: true,
       minScore: 100,
       location: 0,
-      distance: 100,
+      distance: 0,
     };
 
     const fuse = new Fuse(joinTables, options);

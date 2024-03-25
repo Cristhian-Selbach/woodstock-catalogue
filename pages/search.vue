@@ -26,7 +26,7 @@ let results = data!;
     <span class="text-gray-300">{{ query }}</span>
   </h1>
   <div
-    class="mx-[10vw] sm:mx-20 mt-[25vw] sm:mt-40 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40vw] sm:gap-[15vw] xl:grid-cols-4"
+    class="mx-[10vw] sm:mx-20 lg:mx-52 mt-[25vw] sm:mt-40 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[40vw] sm:gap-[15vw] xl:gap-[8vw] xl:grid-cols-4"
   >
     <NuxtLink
       v-for="result in results"
