@@ -27,12 +27,11 @@ let stats = ref(true);
 
 function changeStats() {
   stats.value = !stats.value;
-  console.log(stats.value);
 }
 </script>
 <template>
   <div
-    class="bg-[url(~/assets/images/guitars-cover-background.png)] h-screen bg-cover bg-center"
+    class="bg-[url(~/assets/images/guitars-cover-background.png)] h-screen bg-cover bg-center bg-fixed"
   >
     <Navbar></Navbar>
     <!-- DESKTOP SCREEN -->
@@ -41,7 +40,7 @@ function changeStats() {
       class="mx-32 xl:mx-80 flex justify-between h-[calc(100%-64px)]"
     >
       <img
-        class="bottom-16 absolute z-0 h-[97vh] xl:h-[105vh] object-contain outline-guitars"
+        class="bottom-12 absolute z-0 h-[97vh] xl:h-[105vh] xl:bottom-4 object-contain outline-guitars"
         :src="guitar.images.coverImgUrl"
         alt=""
       />
@@ -97,7 +96,22 @@ function changeStats() {
       </div>
     </div>
     <!-- MOBILE SCREEN -->
-    <div v-else>MOBILE</div>
+    <div v-else>
+      <div
+        class="bg-[url(~/assets/images/guitars-cover-background.png)] w-screen h-screen fixed bg-cover bg-center"
+      ></div>
+
+      <div class="flex flex-col w-screen items-center">
+        <img
+          class="w-[100vw] translate-y-[-4rem] object-contain outline-guitars absolute z-[5]"
+          :src="guitar.images.coverImgUrl"
+          alt=""
+        />
+        <div
+          class="mt-6 relative bg-[#88888878] h-[55vh] w-[90vw] rounded-[26px] backdrop-blur-sm"
+        ></div>
+      </div>
+    </div>
   </div>
 </template>
 
