@@ -98,18 +98,64 @@ function changeStats() {
     <!-- MOBILE SCREEN -->
     <div v-else>
       <div
-        class="bg-[url(~/assets/images/guitars-cover-background.png)] w-screen h-screen fixed bg-cover bg-center"
+        class="bg-[url(~/assets/images/guitars-cover-background.png)] translate-y-[-4rem] w-screen h-screen fixed bg-cover bg-center"
       ></div>
 
       <div class="flex flex-col w-screen items-center">
         <img
-          class="w-[100vw] translate-y-[-4rem] object-contain outline-guitars absolute z-[5]"
+          class="h-[130vw] translate-y-[-4rem] object-contain outline-guitars absolute z-[5]"
           :src="guitar.images.coverImgUrl"
           alt=""
         />
         <div
-          class="mt-6 relative bg-[#88888878] h-[55vh] w-[90vw] rounded-[26px] backdrop-blur-sm"
+          class="mt-6 relative bg-[#88888878] h-[110vw] w-[80vw] rounded-[26px] backdrop-blur-sm"
         ></div>
+
+        <div
+          class="p-10 outline-gray-mobile text-white my-6 relative bg-[#88888878] w-[80vw] rounded-[26px] backdrop-blur-sm"
+        >
+          <h1 class="text-center text-5xl leading-10">
+            {{ guitar.brand + " " + guitar.name }}
+          </h1>
+
+          <div v-if="stats" class="w-full">
+            <div v-for="(item, index) in guitar.stats">
+              <div class="text-[42px] flex justify-between">
+                <h2>{{ transformString(index) }}</h2>
+                <h2>{{ item }}</h2>
+              </div>
+
+              <div
+                class="h-[2.3vh] rounded-full bg-[#e4e4e4e3] mt-[.5vh] mb-[1vh]"
+              >
+                <div
+                  class="h-full bg-[#0F63AF] rounded-full"
+                  :style="`width: ${item * 10}%`"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div v-else class="w-full mt-8 text-xl text-justify">
+            <p>{{ guitar.description }}</p>
+            <span>Artists: </span>
+            <NuxtLink
+              class="hover-effect"
+              v-for="artist in guitar.artists"
+              :to="`/artists/${artist.slug}`"
+            >
+              {{ artist.name }}, &nbsp;
+            </NuxtLink>
+          </div>
+          <div class="flex justify-center mt-8">
+            <button
+              @click="changeStats"
+              class="flex items-center justify-center w-[160px] h-11 bg-[#0F63AF] border-2 border-[#0F63AF] rounded-full text-white text-3xl hover-effect"
+            >
+              <p v-if="stats">see more</p>
+              <p v-else>see stats</p>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

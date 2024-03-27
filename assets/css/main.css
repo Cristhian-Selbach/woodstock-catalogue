@@ -19,6 +19,9 @@
 .outline-title-gray {
   text-shadow: -0.08em 0.08em #1f1f1f;
 }
+.outline-gray-mobile {
+  text-shadow: -0.2em 0.2em #272727;
+}
 
 .outline-cards {
   box-shadow: -8px 8px 1px -3px rgba(51, 51, 51, 0.7);
