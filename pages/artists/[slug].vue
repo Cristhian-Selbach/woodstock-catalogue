@@ -2,6 +2,8 @@
 const route = useRoute();
 const slug = route.params.slug;
 
+const viewport = useViewport();
+
 const { data } = await useFetch(`/api/artists/${slug}`);
 const artist = data.value![0];
 const guitars = artist.guitars;
@@ -13,7 +15,8 @@ const guitars = artist.guitars;
   ></div>
   <Navbar></Navbar>
   <div
-    class="mx-20 xl:mx-52 flex justify-between items-center h-[calc(100dvh-64px)] relative"
+    v-if="!viewport.isLessThan('desktop')"
+    class="mx-20 xl:mx-72 flex justify-between items-center h-[calc(100dvh-64px)] relative"
   >
     <img
       :src="artist.images.coverImgUrl"
@@ -37,6 +40,29 @@ const guitars = artist.guitars;
             :style="`background-image: url(${guitar.images.coverImgUrl})`"
           ></Nuxt-Link>
         </div>
+      </div>
+    </div>
+  </div>
+  <div v-else class="flex flex-col relative mx-[5vw]">
+    <img
+      :src="artist.images.coverImgUrl"
+      class="mt-10 h-[60dvh] object-cover rounded-[32px] hover-effect-cards"
+    />
+    <div
+      class="p-7 my-10 flex flex-col bg-[#e4e4e456] rounded-[32px] backdrop-blur-sm text-white"
+    >
+      <h1 class="text-center text-[40px] outline-title">{{ artist.name }}</h1>
+      <p class="text-justify text-2xl outline-title">
+        {{ artist.description }}
+      </p>
+      <h1 class="text-center text-[40px] outline-title">Main guitars:</h1>
+      <div class="flex flex-col space-y-6">
+        <Nuxt-Link
+          v-for="guitar in guitars"
+          :to="`/guitars/${guitar.slug}`"
+          class="w-full h-[80vw] bg-[#e4e4e456] rounded-[16px] flex justify-center bg-contain bg-no-repeat bg-center hover-effect-cards"
+          :style="`background-image: url(${guitar.images.coverImgUrl})`"
+        ></Nuxt-Link>
       </div>
     </div>
   </div>
