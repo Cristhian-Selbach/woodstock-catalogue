@@ -14,7 +14,9 @@ const route = useRoute();
       <div
         class="p-10 space-y-5 text-white flex flex-col items-center justify-between py-11 sm:w-[530px] w-[90vw] bg-[#b9b9b978] backdrop-blur-sm rounded-[28px]"
       >
-        <h1 class="sm:text-6xl text-[55px] outline-title h-fit text-nowrap">
+        <h1
+          class="leading-[45px] sm:text-6xl text-[55px] outline-title h-fit text-nowrap"
+        >
           404. Page not found
         </h1>
         <p class="text-3xl outline-text-brown">
