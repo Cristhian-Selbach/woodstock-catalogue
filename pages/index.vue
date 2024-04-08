@@ -14,7 +14,7 @@ async function search() {
   >
     <Navbar></Navbar>
     <div
-      class="md:mx-20 justify-center md:justify-normal mt-[10vh] sm:mt-0 sm:h-[calc(100%-64px)] flex items-center"
+      class="md:mx-20 xl:mx-52 justify-center md:justify-normal mt-[10vh] sm:mt-0 sm:h-[calc(100%-64px)] flex items-center"
     >
       <div
         class="flex flex-col items-center justify-between py-11 sm:w-[530px] sm:h-[310px] w-[90vw] h-[40vh] bg-[#b9b9b978] backdrop-blur-sm rounded-[28px]"
