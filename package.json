@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
-    "nuxt": "^3.9.3",
+    "nuxt": "^3.13.0",
     "nuxt-viewport": "^2.1.4",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
