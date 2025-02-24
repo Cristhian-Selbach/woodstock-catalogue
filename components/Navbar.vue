@@ -28,10 +28,10 @@ function toggle() {
       <div
         class="text-[28px] space-x-24 text-white outline-brown hidden md:inline-block"
       >
-        <Nuxt-Link class="hover-effect" to="/artists">Artists</Nuxt-Link>
-        <Nuxt-Link class="hover-effect" to="/brands">Brands</Nuxt-Link>
-        <Nuxt-Link class="hover-effect" to="/models">Models</Nuxt-Link>
-        <Nuxt-Link class="hover-effect" to="/about">About</Nuxt-Link>
+        <a class="hover-effect" href="/artists">Artists</a>
+        <a class="hover-effect" href="/brands">Brands</a>
+        <a class="hover-effect" href="/models">Models</a>
+        <a class="hover-effect" href="/about">About</a>
       </div>
 
       <button
